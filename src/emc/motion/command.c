@@ -1966,6 +1966,11 @@ void emcmotCommandHandler(void *arg, long period)
 	    axis->locking_joint = joint_num;
             break;
 
+        case EMCMOT_CODE_STATUS:
+	    rtapi_print( "SET_Fcode status: %f\n", emcmotCommand->fcode);
+	    rtapi_print_msg(RTAPI_MSG_DBG, " %f", emcmotCommand->fcode);
+	    break;
+
 	default:
 	    rtapi_print_msg(RTAPI_MSG_DBG, "UNKNOWN");
 	    reportError(_("unrecognized command %d"), emcmotCommand->command);
