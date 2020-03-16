@@ -1969,6 +1969,7 @@ void emcmotCommandHandler(void *arg, long period)
         case EMCMOT_CODE_STATUS:
 	    rtapi_print( "SET_Fcode status: %f\n", emcmotCommand->fcode);
 	    rtapi_print_msg(RTAPI_MSG_DBG, " %f", emcmotCommand->fcode);
+        emcmotStatus->fcode = emcmotCommand-> fcode;
 	    break;
 
 	default:
