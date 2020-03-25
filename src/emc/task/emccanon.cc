@@ -506,6 +506,8 @@ void SET_FEED_MODE(int spindle, int mode) {
 
 void SET_FEED_RATE(double rate)
 {
+	// send a code status NML message with the F word setting
+	send_code_status_msg(rate);
 
     if(canon.feed_mode) {
 	START_SPEED_FEED_SYNCH(canon.spindle_num, rate, 1);
@@ -525,8 +527,6 @@ void SET_FEED_RATE(double rate)
 
 	canon.linearFeedRate = newLinearFeedRate;
 	canon.angularFeedRate = newAngularFeedRate;
-    // send a code status NML message with the F word setting
-    send_code_status_msg(rate*60);
     }
 }
 
