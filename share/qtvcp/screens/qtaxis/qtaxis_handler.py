@@ -52,6 +52,7 @@ class HandlerClass:
         STATUS.connect('motion-mode-changed',self.motion_mode)
         STATUS.connect('user-system-changed', self._set_user_system_text)
         STATUS.connect('actual-spindle-speed-changed',self.update_spindle)
+        STATUS.connect('f-code-changed',self.update_fcode)
 
     ##########################################
     # Special Functions called from QTSCREEN
@@ -431,6 +432,9 @@ class HandlerClass:
         self.w.tool_stat.setAlignment(QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter)
         self.w.tool_stat.setFixedWidth(60)
         self.w.leftTab.setCornerWidget(self.w.tool_stat)
+
+    def update_fcode(self,obj, data):
+        print 'Fcode:',data
 
     #####################
     # KEY BINDING CALLS #
