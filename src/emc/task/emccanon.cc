@@ -1225,6 +1225,7 @@ void STOP_CUTTER_RADIUS_COMPENSATION()
 
 void START_SPEED_FEED_SYNCH(int spindle, double feed_per_revolution, bool velocity_mode)
 {
+    send_code_status_msg(feed_per_revolution);
     flush_segments();
     EMC_TRAJ_SET_SPINDLESYNC spindlesyncMsg;
     spindlesyncMsg.spindle = spindle;
