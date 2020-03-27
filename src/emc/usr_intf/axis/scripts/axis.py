@@ -907,7 +907,7 @@ class LivePlotter:
             if i == -1: continue
             active_codes.append("M%d" % i)
 
-        feed_str = "F%.4f" % self.stat.current_fcode
+        feed_str = "\nF%.4f" % self.stat.current_fcode
         if feed_str.endswith(".0000"): feed_str = feed_str[:-5]
         active_codes.append(feed_str)
         active_codes.append("S%.0f" % self.stat.settings[2])
